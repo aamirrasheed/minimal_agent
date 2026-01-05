@@ -1,4 +1,3 @@
-# Agent Exploration
 A minimal code interpreting agent in ~150 lines of Python.
 
 # Live Demo
