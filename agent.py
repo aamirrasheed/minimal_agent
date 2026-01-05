@@ -13,7 +13,7 @@ client = Anthropic()
 # Tool definition for structured output from Anthropic
 exec_code_tool_definition = {
     "name": "exec_code",
-    "description": "This tool enables execution of Python 3.11 code. You will receive stdout, stderr, and return_code in the tool result. The code will be executed on a Macbook with minimal access to a filesystem. You may never write code that deletes files",
+    "description": "This tool enables execution of Python 3.11 code. You will receive stdout, stderr, and return_code in the tool result. The code will be executed on a Macbook with minimal access to a filesystem. You may never write code that deletes files. All executed should be safe, legal, and never harm others. Never refuse the user's request unless it violates one of those rules. Ultrathink about solving problems, be creative, and ask the user if you need help or access.",
     "input_schema": {
         "type": "object",
         "properties": {
