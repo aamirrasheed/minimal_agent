@@ -6,9 +6,11 @@ import tempfile
 from dotenv import load_dotenv
 from anthropic import Anthropic
 
+# setup 
 load_dotenv()
 client = Anthropic()
 
+# Tool definition for structured output from Anthropic
 exec_code_tool_definition = {
     "name": "exec_code",
     "description": "This tool enables execution of Python 3.11 code. You will receive stdout, stderr, and return_code in the tool result. The code will be executed on a Macbook with minimal access to a filesystem. You may never write code that deletes files",
@@ -24,14 +26,15 @@ exec_code_tool_definition = {
     }
 }
 
+# exec_code tool definition
 def exec_code(code):
-    # Write the code to a temporary file
+    # Write the code to a temporary file so we can run as subprocess
     with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as temp_file:
         temp_file.write(code)
         temp_file_path = temp_file.name
 
     try:
-        # Run the subprocess to execute the python code
+        # Run as subprocess so we can capture stdout, stderr, and return code
         proc = subprocess.Popen(
             [sys.executable, temp_file_path],
             stdout=subprocess.PIPE,
@@ -53,7 +56,7 @@ def exec_code(code):
     }
 
 
-class Agent:
+class MinimalAgent:
     def __init__(self, model="claude-sonnet-4-5", system_prompt=None):
         self.client = Anthropic()
         self.model = model
@@ -138,7 +141,7 @@ class Agent:
                 break
 
 def main():
-    agent = Agent()
+    agent = MinimalAgent()
     try:
         while True:
             prompt = input("===You:===\n")

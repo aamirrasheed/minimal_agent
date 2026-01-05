@@ -1,9 +1,9 @@
 # Agent Exploration
-A minimal code interpreting agent in ~150 lines of Python code using Claude (Anthropic).
+A minimal code interpreting agent in ~150 lines of Python.
 
 # Prerequisites
 1. Python 3.11+
-2. [uv](https://docs.astral.sh/uv/) for dependency management
+2. [uv](https://docs.astral.sh/uv/) for dependency and environment management
 3. Grab an Anthropic API key. Create a `.env` file in the root directory:
    ```env
    ANTHROPIC_API_KEY=your_api_key_here

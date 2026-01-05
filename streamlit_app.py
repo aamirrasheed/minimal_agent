@@ -1,5 +1,5 @@
 import streamlit as st
-from agent import Agent
+from agent import MinimalAgent
 
 st.set_page_config(page_title="Claude Code Agent", page_icon="🤖")
 
@@ -8,7 +8,7 @@ st.markdown("An agent that can execute Python code to help solve your tasks.")
 
 # Initialize session state for the agent and history
 if "agent" not in st.session_state:
-    st.session_state.agent = Agent()
+    st.session_state.agent = MinimalAgent()
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
