@@ -1,6 +1,11 @@
 # Agent Exploration
 A minimal code interpreting agent in ~150 lines of Python.
 
+# Live Demo
+Running on Streamlit Community Cloud: [link](https://l3rqbsime5mrosntrpfab5.streamlit.app/)
+
+![Demo screenshot](img/demo.png)
+
 # Prerequisites
 1. Python 3.11+
 2. [uv](https://docs.astral.sh/uv/) for dependency and environment management
